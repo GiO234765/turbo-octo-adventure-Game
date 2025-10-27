@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Background Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2);
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px rgba(44, 62, 80, 0.28);
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #66a6ff;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s;
+    }
+    .card:hover .avatar {
+      border-color: #89f7fe;
+    }
+    h2 {
+      margin: 0.5rem 0 0.2rem;
+      color: #35495e;
+    }
+    p {
+      color: #555;
+      margin-bottom: 0.8rem;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .skill {
+      background: #ecf0f1;
+      color: #2980b9;
+      border-radius: 14px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .goal {
+      color: #27ae60;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    button {
+      background: #66a6ff;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 14px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .fact {
+      color: #8e44ad;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+    .fact.hide {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="avatar" src="profile anime.png" alt="Student Avatar">
+    <h2>HIDDER</h2>
+    <p><strong>Royal University of Phnom Penh</strong></p>
+    <p>Second Year Software Engineering Student</p>
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">C</span>
+      <span class="skill">C++</span>
+      <span class="skill">Python</span>
+      <span class="skill">Web Development</span>
+    </div>
+    <div class="goal">Aspires to be a Software Engineer in Australia 🇦🇺</div>
+    <button onclick="showFact()">Show Fun Fact</button>
+    <div class="fact hide" id="fact"></div>
+  </div>
+  <script>
+    const facts = [
+      "Did you know? Australia is home to over 2,000 tech startups!",
+      "Web development combines creativity and logic—just like art and math!",
+      "Learning multiple languages helps you think differently about solving problems.",
+      "Software engineers in Australia can work in diverse industries—from finance to gaming!",
+      "Royal University of Phnom Penh is the oldest and largest university in Cambodia."
+    ];
+    function showFact() {
+      const factDiv = document.getElementById('fact');
+      factDiv.classList.remove('hide');
+      factDiv.textContent = facts[Math.floor(Math.random() * facts.length)];
+      setTimeout(() => factDiv.classList.add('hide'), 4000);
+    }
+  </script>
+</body>
+</html>
